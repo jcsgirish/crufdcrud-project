@@ -3,8 +3,6 @@
 body {
     margin: 0.5rem;
     text-align: center;
-    color: rgb(104, 109, 59);
-    background-color: rgb(255, 255, 255);
     font-weight: bolder;
     background-image: url('https://b.zmtcdn.com/data/reviews_photos/e9d/a9ebdad4a3d856c21ed006f941c80e9d_1564279981.jpg?fit=around|750:500&crop=750:500;*,*');
     background-repeat: no-repeat;
@@ -15,20 +13,17 @@ body {
   h1 {
     color: rgb(235, 204, 32);
   }
-  
-  h2 {
-   
-    color: gold;
+  h2{
+    color: rgb(187, 159, 0);
   }
-  
+ 
   /* Box styles */
   div.box {
     margin: 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    
-    max-width: 1200px;
+    max-width: 1300px;
   }
 
   /* Button styles */
@@ -39,6 +34,7 @@ body {
     width: 100px;
     height: 30px;
     color:rgb(160, 29, 29);
+    font-weight: bold;
   }
   
 
@@ -55,7 +51,7 @@ body {
   }
   
   li {
-    color: rgb(223, 178, 32);
+    color: rgb(75, 160, 230);
     margin: 1px;
     font-weight: 900;
   }
@@ -65,7 +61,7 @@ body {
     width: 100px;
     text-align: center;
     margin-right: 10px;
-    color: rgb(85, 151, 160);
+    color: rgb(108, 196, 255);
     font-weight: bold;
   }
   
@@ -80,7 +76,6 @@ body {
     border-radius: 1rem;
     background-color: red;
   }
-  
 
     /* Media queries */
     @media only screen and (max-width: 768px) {

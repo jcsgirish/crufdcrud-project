@@ -41,7 +41,15 @@ window.document.addEventListener("DOMContentLoaded",()=>{
 function onscreen(object)
 {
 
-var  parentele=document.getElementById('listofusers')
+  var parentele;
+  if (object.mytable === 'Table 1') {
+    parentele = document.getElementById('table1Orders');
+  } else if (object.mytable === 'Table 2') {
+    parentele = document.getElementById('table2Orders');
+  } else if (object.mytable === 'Table 3') {
+    parentele = document.getElementById('table3Orders');
+  }
+  
 var childele=document.createElement('li')
 childele.textContent=(object.mytable+"--"+object.mydish+'--'+object.myprice+'--')
 parentele.appendChild(childele)
