@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="project.css">
+  <title>ExpenseTracker</title>
+</head>
+<header><h1>Restaurant</h1></header><br>
+<body>
+  <form onsubmit="save(event)">
+    
+     <div class="container">
+      <div class="box">
+        <label><b>ChoosePrice:</b></label><br>
+        <input id="prices" type="text" placeholder="EnterPrice"  name='price' required><br><br>
+          <label><b>ChooseDish:</b></label required><br>
+          <input id="dishes" type="text"placeholder="EnterDish"  name="dish" required><br><br>
+          <label><b>ChooseTable:</b></label><br>
+          <select id="Tables" name="table" required>
+            <option value="Select Table" > Select Table</option>
+           <option value="Table 1">Table 1</option>
+           <option value="Table 2">Table 2</option>
+           <option value="Table 3">Table 3</option>
+
+          </select><br>
+        
+         
+     </div>
+     <button><b>AddBill</b></button>
+
+        <h2><strong>Orders:</strong></h2>
+ 
+
+  <ul id="listofusers"></ul>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.3/axios.min.js"></script>
+  <script src="project.js"></script>
+</body>
+</html>
