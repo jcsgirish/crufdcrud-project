@@ -14,7 +14,7 @@ body {
     color: rgb(235, 204, 32);
   }
   h2{
-    color: rgb(187, 159, 0);
+    color: rgb(248, 221, 12);
   }
  
   /* Box styles */
@@ -42,7 +42,7 @@ body {
   /* List styles */
   ul {
     list-style-type: decimal;
-   background-color: black;
+   background-color: rgb(255, 255, 255);
     border: 2px;
     padding: 0px;
     max-width: 500px;
@@ -51,7 +51,7 @@ body {
   }
   
   li {
-    color: rgb(75, 160, 230);
+    color: rgb(0, 0, 0);
     margin: 1px;
     font-weight: 900;
   }
@@ -75,8 +75,14 @@ body {
     margin: 3px;
     border-radius: 1rem;
     background-color: red;
-  }
 
+  }
+  input.editbutton{
+    width: 70px;
+    margin: 3px;
+    border-radius: 1rem;
+    background-color: rgb(0, 110, 255);
+  }
     /* Media queries */
     @media only screen and (max-width: 768px) {
         div.box {
