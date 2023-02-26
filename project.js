@@ -1,4 +1,4 @@
-function save(event)
+async function save(event)
 {
   event.preventDefault()
   var myprice=event.target.price.value
@@ -9,7 +9,7 @@ var object={
   mydish,
   mytable,
 }
-axios.post("https://crudcrud.com/api/7ba38e8643424f8fb360361f33857e27/orders",object)
+await axios.post("https://crudcrud.com/api/7ba38e8643424f8fb360361f33857e27/orders",object)
 .then((respone)=>{
     onscreen(respone.data)
     console.log(respone)
@@ -18,8 +18,8 @@ axios.post("https://crudcrud.com/api/7ba38e8643424f8fb360361f33857e27/orders",ob
     console.log(err)
 })
 }
-window.document.addEventListener("DOMContentLoaded",()=>{
-    axios.get("https://crudcrud.com/api/7ba38e8643424f8fb360361f33857e27/orders")
+window.document.addEventListener("DOMContentLoaded",async ()=>{
+    await axios.get("https://crudcrud.com/api/7ba38e8643424f8fb360361f33857e27/orders")
     .then((response)=>{
         console.log(response)
         for(var i=0;i<response.data.length;i++){
@@ -53,8 +53,8 @@ delbutton.style.border='1px solid red'
 delbutton.type='button'
 delbutton.value='Delete'
 delbutton.className='deletebutton'
-delbutton.onclick = ()=>{
-        axios.delete(`https://crudcrud.com/api/7ba38e8643424f8fb360361f33857e27/orders/${object._id}`)
+delbutton.onclick = async ()=>{
+        await axios.delete(`https://crudcrud.com/api/7ba38e8643424f8fb360361f33857e27/orders/${object._id}`)
           .then((response) => {
             console.log(response)
             parentele.removeChild(childele)
@@ -72,8 +72,8 @@ editbutton.type='button'
 editbutton.value='Edit'
 editbutton.className='editbutton'
 
-editbutton.onclick = ()=>{
-        axios.delete(`https://crudcrud.com/api/7ba38e8643424f8fb360361f33857e27/orders/${object._id}`)
+editbutton.onclick = async ()=>{ 
+  await axios.delete(`https://crudcrud.com/api/7ba38e8643424f8fb360361f33857e27/orders/${object._id}`)
           .then((response) => {
             console.log(response)
             parentele.removeChild(childele)
@@ -81,7 +81,8 @@ editbutton.onclick = ()=>{
           .catch((error) => {
             console.log(error)
           })
-          parentele.removeChild(childele)
+
+         
           document.getElementById('prices').value=object.myprice
           document.getElementById('dishes').value=object.mydish
           document.getElementById('Tables').value=object.mytable
