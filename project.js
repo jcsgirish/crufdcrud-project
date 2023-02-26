@@ -1,32 +1,27 @@
-async function save(event)
+function save(event)
 {
   event.preventDefault()
   var myprice=event.target.price.value
   var mydish=event.target.dish.value
   var mytable=event.target.table.value
-
 var object={
   myprice,
   mydish,
   mytable,
 }
-await axios.post("https://crudcrud.com/api/e8dd0106e73f437c9cd52f8b45e64390/orders",object)
+axios.post("https://crudcrud.com/api/7ba38e8643424f8fb360361f33857e27/orders",object)
 .then((respone)=>{
     onscreen(respone.data)
     console.log(respone)
-
-
 })
 .catch((err)=>{
     console.log(err)
 })
-
 }
-window.document.addEventListener("DOMContentLoaded",async ()=>{
-    await axios.get("https://crudcrud.com/api/e8dd0106e73f437c9cd52f8b45e64390/orders")
+window.document.addEventListener("DOMContentLoaded",()=>{
+    axios.get("https://crudcrud.com/api/7ba38e8643424f8fb360361f33857e27/orders")
     .then((response)=>{
         console.log(response)
-
         for(var i=0;i<response.data.length;i++){
             onscreen(response.data[i])
         }
@@ -34,13 +29,11 @@ window.document.addEventListener("DOMContentLoaded",async ()=>{
     .catch((error)=>{
         console.log(error)
     })
-
 })
-
-
 function onscreen(object)
 {
 
+var  parentele=document.getElementById('listofusers')
   var parentele;
   if (object.mytable === 'Table 1') {
     parentele = document.getElementById('table1Orders');
@@ -49,21 +42,19 @@ function onscreen(object)
   } else if (object.mytable === 'Table 3') {
     parentele = document.getElementById('table3Orders');
   }
-  
+
 var childele=document.createElement('li')
 childele.textContent=(object.mytable+"--"+object.mydish+'--'+object.myprice+'--')
-parentele.appendChild(childele)
 
+parentele.appendChild(childele)
 
 const delbutton =document.createElement('input')
 delbutton.style.border='1px solid red'
 delbutton.type='button'
 delbutton.value='Delete'
 delbutton.className='deletebutton'
-
-delbutton.onclick = async()=>{
-
-        await axios.delete(`https://crudcrud.com/api/e8dd0106e73f437c9cd52f8b45e64390/orders/${object._id}`)
+delbutton.onclick = ()=>{
+        axios.delete(`https://crudcrud.com/api/7ba38e8643424f8fb360361f33857e27/orders/${object._id}`)
           .then((response) => {
             console.log(response)
             parentele.removeChild(childele)
@@ -75,39 +66,27 @@ delbutton.onclick = async()=>{
 childele.appendChild(delbutton)
 
 
-
 const editbutton =document.createElement('input')
 editbutton.style.border='1px solid blue'
 editbutton.type='button'
 editbutton.value='Edit'
 editbutton.className='editbutton'
 
-editbutton.onclick =async()=>{
-
-  await axios.delete(`https://crudcrud.com/api/e8dd0106e73f437c9cd52f8b45e64390/orders/${object._id}`)
-  .then((response) => {
-    console.log(response)
-    parentele.removeChild(childele)
-  })
-  .catch((error) => {
-    console.log(error)
-  })
-  
- 
-  document.getElementById('prices').value=object.myprice
-  document.getElementById('dishes').value=object.mydish
-  document.getElementById('Tables').value=object.mytable
-
+editbutton.onclick = ()=>{
+        axios.delete(`https://crudcrud.com/api/7ba38e8643424f8fb360361f33857e27/orders/${object._id}`)
+          .then((response) => {
+            console.log(response)
+            parentele.removeChild(childele)
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+          parentele.removeChild(childele)
+          document.getElementById('prices').value=object.myprice
+          document.getElementById('dishes').value=object.mydish
+          document.getElementById('Tables').value=object.mytable
+        
 }
 childele.appendChild(editbutton)
+
 }
-
-
-
-
-
-
-
-
-
-
