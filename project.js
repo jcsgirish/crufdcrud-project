@@ -10,7 +10,7 @@ var object={
   mydish,
   mytable,
 }
-await axios.post("https://crudcrud.com/api/3b86239ea21744eb97945c26db14a40d/orders",object)
+await axios.post("https://crudcrud.com/api/e8dd0106e73f437c9cd52f8b45e64390/orders",object)
 .then((respone)=>{
     onscreen(respone.data)
     console.log(respone)
@@ -23,7 +23,7 @@ await axios.post("https://crudcrud.com/api/3b86239ea21744eb97945c26db14a40d/orde
 
 }
 window.document.addEventListener("DOMContentLoaded",async ()=>{
-    await axios.get("https://crudcrud.com/api/3b86239ea21744eb97945c26db14a40d/orders")
+    await axios.get("https://crudcrud.com/api/e8dd0106e73f437c9cd52f8b45e64390/orders")
     .then((response)=>{
         console.log(response)
 
@@ -63,7 +63,7 @@ delbutton.className='deletebutton'
 
 delbutton.onclick = async()=>{
 
-        await axios.delete(`https://crudcrud.com/api/3b86239ea21744eb97945c26db14a40d/orders/${object._id}`)
+        await axios.delete(`https://crudcrud.com/api/e8dd0106e73f437c9cd52f8b45e64390/orders/${object._id}`)
           .then((response) => {
             console.log(response)
             parentele.removeChild(childele)
@@ -82,9 +82,18 @@ editbutton.type='button'
 editbutton.value='Edit'
 editbutton.className='editbutton'
 
-editbutton.onclick =()=>{
+editbutton.onclick =async()=>{
+
+  await axios.delete(`https://crudcrud.com/api/e8dd0106e73f437c9cd52f8b45e64390/orders/${object._id}`)
+  .then((response) => {
+    console.log(response)
+    parentele.removeChild(childele)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
   
-  parentele.removeChild(childele)
+ 
   document.getElementById('prices').value=object.myprice
   document.getElementById('dishes').value=object.mydish
   document.getElementById('Tables').value=object.mytable

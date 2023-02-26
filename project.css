@@ -81,7 +81,7 @@ body {
     width: 70px;
     margin: 3px;
     border-radius: 1rem;
-    background-color: rgb(0, 110, 255);
+    background-color:blue;
   }
     /* Media queries */
     @media only screen and (max-width: 768px) {
